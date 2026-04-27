@@ -1,7 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { StudentsModule } from './student/student.module';
+import { StudentsController } from './student/student.controller';
+import { TeachersController } from './teacher/teacher.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
+import { student } from './student/student.entity';
+import { teacher } from './teacher/teacher.entity';
+import { DataSource } from 'typeorm';
+import { StudentsService } from './student/student.service';
+import { TeachersService } from './teacher/teacher.servise';
+import { TeachersModule } from './teacher/teacher.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -11,10 +18,12 @@ import {TypeOrmModule} from '@nestjs/typeorm';
       username: 'postgres',
       password: '1324',
       database: 'HADASIM',
-      autoLoadEntities: true,
-      synchronize: true, // רק לפיתוח!
-    }),],
-  controllers: [AppController],
-  providers: [AppService],
+      entities: [student, teacher],
+      synchronize: true,
+    }), StudentsModule,TeachersModule],
+  controllers: [StudentsController, TeachersController],
+  providers: [StudentsService,TeachersService]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}

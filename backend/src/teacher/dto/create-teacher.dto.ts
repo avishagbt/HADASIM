@@ -1,0 +1,15 @@
+import { IsNumber, IsString } from 'class-validator';
+
+export class CreateTeacherDto {
+  @IsNumber()
+  id: number;
+
+  @IsString()
+  firstName: string;
+
+  @IsString()
+  lastName: string;
+
+  @IsString()
+  classroom: string;
+}
