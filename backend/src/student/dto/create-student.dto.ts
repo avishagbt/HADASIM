@@ -11,5 +11,5 @@ export class CreateStudentDto {
   lastName: string;
 
   @IsString()
-  classroom: string;
+  grade: string;
 }

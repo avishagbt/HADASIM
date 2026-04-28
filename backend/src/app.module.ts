@@ -9,6 +9,9 @@ import { DataSource } from 'typeorm';
 import { StudentsService } from './student/student.service';
 import { TeachersService } from './teacher/teacher.servise';
 import { TeachersModule } from './teacher/teacher.module';
+import { AuthModule } from './auth/auth.module';
+import { AuthService } from './auth/auth.service';
+import { AuthController } from './auth/auth.controller';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -20,10 +23,9 @@ import { TeachersModule } from './teacher/teacher.module';
       database: 'HADASIM',
       entities: [student, teacher],
       synchronize: true,
-    }), StudentsModule,TeachersModule],
-  controllers: [StudentsController, TeachersController],
-  providers: [StudentsService,TeachersService]
+    }), StudentsModule,TeachersModule, AuthModule],
+  //controllers: [StudentsController, TeachersController, AuthController],
+  //providers: [StudentsService,TeachersService, AuthService]
 })
 export class AppModule {
-  constructor(private dataSource: DataSource) {}
 }

@@ -1,9 +1,9 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { StudentsService } from './student.service';
 import { student } from './student.entity';
 import { CreateStudentDto } from './dto/create-student.dto';
 
-@Controller('students')
+@Controller('student')
 export class StudentsController {
 
   constructor(private readonly studentService: StudentsService){}
@@ -13,12 +13,12 @@ export class StudentsController {
   }
 
   @Get('grade/:grade')
-  findAllInGrade(@Query('grade') grade:string): Promise<student[]> {
+  findAllInGrade(@Param('grade') grade:string): Promise<student[]> {
     return this.studentService.findAllInGrade(grade);
   }
   
-  @Get('id/:id')
-  findOne(@Query('id') id:number): Promise<student | null> {
+  @Get(':id')
+  findOne(@Param('id') id:number): Promise<student | null> {
     return this.studentService.findOne(id);
   }
 

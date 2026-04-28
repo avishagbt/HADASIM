@@ -1,10 +1,9 @@
 
-import { student } from 'src/student/student.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class teacher {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   id: number;
 
   @Column()
@@ -14,8 +13,6 @@ export class teacher {
   lastName: string;
 
   @Column()
-  classroom: string;
+  grade: string;
 
-  //@OneToMany(type => student, Student => Student.id)
-  //students: student[];
 }

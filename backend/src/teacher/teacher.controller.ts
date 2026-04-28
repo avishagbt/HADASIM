@@ -1,23 +1,23 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TeachersService } from './teacher.servise';
 import { CreateTeacherDto } from './dto/create-teacher.dto';
+import { teacher } from './teacher.entity';
 
-@Controller('teachers')
+@Controller('teacher')
 export class TeachersController {
   constructor(private readonly teacherService: TeachersService) {}
   @Get()
-  findAll(): string {
-    return this.findAll();
+  findAll():Promise<teacher[]> {
+    return this.teacherService.findAll();
   }
    
-  @Get('id/:id')
-  findOne(@Param('id') id: string): string {
-    return this.findOne(id);
+  @Get(':id')
+  findOne(@Param('id') id: number) : Promise<teacher | null> {
+    return this.teacherService.findOne(id);
   }
 
-  @Post('teacher')
+  @Post()
     create(@Body() createTeacherDto: CreateTeacherDto) {
-      return 'This action adds a new user';
+      return this.teacherService.create(createTeacherDto);
     }
-
-}CreateTeacherDto
+}

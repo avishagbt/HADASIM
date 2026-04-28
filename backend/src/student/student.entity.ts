@@ -1,9 +1,9 @@
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class student {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   id: number;
 
   @Column()
@@ -13,5 +13,5 @@ export class student {
   lastName: string;
 
   @Column()
-  classroom: string;
+  grade: string;
 }

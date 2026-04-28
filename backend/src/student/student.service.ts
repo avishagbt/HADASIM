@@ -1,7 +1,7 @@
 
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DataSource, Repository } from 'typeorm';
+import {  Repository } from 'typeorm';
 import { student } from './student.entity';
 import { CreateStudentDto } from './dto/create-student.dto';
 
@@ -20,7 +20,7 @@ export class StudentsService {
   async findAllInGrade(grade: string) {
     return this.studentRepository
       .createQueryBuilder('student')
-      .where('student.grade LIKE :grade', { search: `%${grade}%` })
+      .where('student.grade LIKE :grade', { grade: `%${grade}%` })
       .getMany();
   }
 
@@ -34,7 +34,7 @@ export class StudentsService {
     id:dto.id,
     firstName: dto.firstName,
     lastName: dto.lastName,
-    classroom: dto.classroom,
+    grade: dto.grade,
   });
 
   return this.studentRepository.save(student);

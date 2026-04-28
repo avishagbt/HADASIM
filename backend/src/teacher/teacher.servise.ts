@@ -3,23 +3,33 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { teacher } from './teacher.entity';
+import { CreateTeacherDto } from './dto/create-teacher.dto';
 
 @Injectable()
 export class TeachersService {
   constructor(
     @InjectRepository(teacher)
-    private usersRepository: Repository<teacher>,
+    private teacherRepository: Repository<teacher>,
   ) {}
 
   findAll(): Promise<teacher[]> {
-    return this.usersRepository.find();
+    return this.teacherRepository.find();
   }
 
   findOne(id: number): Promise<teacher | null> {
-    return this.usersRepository.findOneBy({ id });
+    return this.teacherRepository.findOneBy({ id });
   }
 
-  async remove(id: number): Promise<void> {
-    await this.usersRepository.delete(id);
+
+  async create(dto: CreateTeacherDto) {
+  
+    const teacher = this.teacherRepository.create({
+      id:dto.id,
+      firstName: dto.firstName,
+      lastName: dto.lastName,
+      grade: dto.grade,
+    });
+  
+    return this.teacherRepository.save(teacher);
   }
 }
