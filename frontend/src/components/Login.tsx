@@ -17,12 +17,9 @@ export default function Login(){
             id: Number(id)
             })
         });
-        //console.log("status:", response.status);
 
         
         if(!response.ok){
-            //const text = await response.text();
-            //console.log("error from server:", text);
             alert("משתמש לא קיים שגיאה");
             return;
         }
@@ -40,7 +37,6 @@ export default function Login(){
             alert("משתמש לא קיים");
             return;
         }
-    
   };
   return(
     <div>        

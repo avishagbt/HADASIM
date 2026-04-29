@@ -1,17 +1,11 @@
 import { Module } from '@nestjs/common';
 import { StudentsModule } from './student/student.module';
-import { StudentsController } from './student/student.controller';
-import { TeachersController } from './teacher/teacher.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { student } from './student/student.entity';
 import { teacher } from './teacher/teacher.entity';
-import { DataSource } from 'typeorm';
-import { StudentsService } from './student/student.service';
-import { TeachersService } from './teacher/teacher.servise';
 import { TeachersModule } from './teacher/teacher.module';
 import { AuthModule } from './auth/auth.module';
-import { AuthService } from './auth/auth.service';
-import { AuthController } from './auth/auth.controller';
+import { LocationModule } from './location/location/location.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -23,9 +17,7 @@ import { AuthController } from './auth/auth.controller';
       database: 'HADASIM',
       entities: [student, teacher],
       synchronize: true,
-    }), StudentsModule,TeachersModule, AuthModule],
-  //controllers: [StudentsController, TeachersController, AuthController],
-  //providers: [StudentsService,TeachersService, AuthService]
+    }), StudentsModule,TeachersModule, AuthModule, LocationModule],
 })
 export class AppModule {
 }

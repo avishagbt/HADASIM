@@ -3,6 +3,7 @@ import LoginPage from './pages/loginPage'
 import StudentPage from './pages/studentPage'
 import TeacherPage from './pages/teacherPage'
 import DataPage from './pages/dataPage'
+import MapPage from './pages/MapPage'
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/student" element={<StudentPage />} />
       <Route path="/teacher" element={<TeacherPage />} />
       <Route path="/data" element={<DataPage />} />
+      <Route path="/Map" element={<MapPage />} />
     </Routes>
   </div>
     )

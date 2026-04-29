@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
+import {createNewLocation} from "../Helper"
 
 export default function TeacherPage(){
 
@@ -68,6 +69,7 @@ export default function TeacherPage(){
             grade: grade
             })
         });
+        await createNewLocation(Number(id));
         alert("נוסף בהצלחה");
     }
     const addTeacher = async()=>{
@@ -81,7 +83,7 @@ export default function TeacherPage(){
             "Content-Type": "application/json"
             },
             body: JSON.stringify({
-            id: Number(id),
+            id: id,
             firstName: firstName,
             lastName: lastName,
             grade: grade
@@ -128,6 +130,9 @@ export default function TeacherPage(){
             />
             <button onClick={addStudent}>הוספת תלמידה</button>
             <button onClick={addTeacher}>הוספת מורה</button>
+        </div>
+        <div>
+            <button onClick={()=>navigate("/Map")}>לצפייה במיקומי התלמידות</button>
         </div>
 
         </div>
