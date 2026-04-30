@@ -19,5 +19,4 @@ import { LocationModule } from './location/location/location.module';
       synchronize: true,
     }), StudentsModule,TeachersModule, AuthModule, LocationModule],
 })
-export class AppModule {
-}
+export class AppModule {}

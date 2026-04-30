@@ -6,9 +6,7 @@ import { TeachersService } from '../teacher/teacher.servise'
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly studentsService: StudentsService,
-              private readonly teachersService: TeachersService
-            ) {}
+  constructor(private readonly studentsService: StudentsService,private readonly teachersService: TeachersService) {}
 
   async signIn( id: number): Promise<any> {
     const student = await this.studentsService.findOne(id);

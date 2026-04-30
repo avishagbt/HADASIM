@@ -118,9 +118,6 @@ export class LocationService {
   getById(id: number) {
     return this.locations.find(item => item.id === id);
   }
-  getTeacherLocById(id: number) {
-    return this.teachersLocations.find(item => item.id === id);
-  }
 
   save(location: createLocationDto) {
 

@@ -52,14 +52,12 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Page layout */
 .page {
   max-width: 860px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
 
-/* Cards */
 .card {
   background: var(--white);
   border: 1px solid var(--gray-200);
@@ -68,7 +66,6 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Student/Teacher cards grid */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -172,7 +169,6 @@ body {
 }
 .btn-danger:hover { background: #fecaca; }
 
-/* Button group */
 .btn-group {
   display: flex;
   flex-wrap: wrap;
@@ -180,7 +176,6 @@ body {
   margin-top: 1rem;
 }
 
-/* Inputs */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -214,14 +209,12 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
 }
 
-/* Divider */
 .divider {
   border: none;
   border-top: 1px solid var(--gray-200);
   margin: 1.25rem 0;
 }
 
-/* Section title */
 .section-title {
   font-size: 0.75rem;
   font-weight: 600;
@@ -231,7 +224,6 @@ input:focus {
   margin-bottom: 0.75rem;
 }
 
-/* Badge */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -245,7 +237,6 @@ input:focus {
 .badge-green { background: var(--green-light); color: var(--green); }
 .badge-red { background: var(--red-light); color: var(--red); }
 
-/* Login page */
 .login-page {
   min-height: 100vh;
   display: flex;

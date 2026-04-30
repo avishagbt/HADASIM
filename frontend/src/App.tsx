@@ -23,7 +23,7 @@ function App() {
       <Route path="/Map" element={<MapPage />} />
     </Routes>
   </div>
-    )
+  )
 }
 
 export default App

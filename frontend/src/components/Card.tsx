@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 
 interface CardProps {
   id: number;
@@ -8,7 +7,6 @@ interface CardProps {
 }
 
 function Card ({id, firstName, lastName, grade}: CardProps) {
-
     
     return (
       <div >

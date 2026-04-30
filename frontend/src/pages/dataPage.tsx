@@ -15,9 +15,8 @@ export default function DataPage(){
     },[type, id, grade]);
 
     const getData = async()=>{
-
-        let url = "";
-        try {
+      let url = "";
+      try {
             if(type === "student"){
             url = `http://localhost:3000/student/${id}`
         }
@@ -41,16 +40,17 @@ export default function DataPage(){
         const Data = await bringData.json();
         setData(Array.isArray(Data)?Data:[Data]);
             
-        } catch (error) {
-            alert(error);
-        }
-        
+      } catch (error) {
+          alert(error);
+        } 
     }
+
     const navigate = useNavigate();
+
     function goBack(): void{
-        navigate("/teacher");
+      navigate("/teacher");
     }
-   
+
     const title =
         type === "students" && grade ? `תלמידות כיתה ${grade}` :
         type === "students" ? "כל התלמידות" :
@@ -59,26 +59,25 @@ export default function DataPage(){
         type === "teacher" ? "פרטי מורה" : "";
 
    return (
-  <div className="page">
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-      <div>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 700 }}>{title}</h2>
-        <div style={{ fontSize: '0.8rem', color: 'var(--gray-400)', marginTop: '0.2rem' }}>{data.length} רשומות</div>
+      <div className="page">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+        <div>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 700 }}>{title}</h2>
+          <div style={{ fontSize: '0.8rem', color: 'var(--gray-400)', marginTop: '0.2rem' }}>{data.length} רשומות</div>
+        </div>
+        <button className="btn btn-ghost" onClick={goBack}>← חזרה</button>
       </div>
-      <button className="btn btn-ghost" onClick={goBack}>← חזרה</button>
+      <div className="cards-grid">
+        {data.map(item => (
+          <Card
+            key={item.id}
+            id={item.id}
+            firstName={item.firstName}
+            lastName={item.lastName}
+            grade={item.grade}
+          />
+        ))}
+      </div>
     </div>
-
-    <div className="cards-grid">
-      {data.map(item => (
-        <Card
-          key={item.id}
-          id={item.id}
-          firstName={item.firstName}
-          lastName={item.lastName}
-          grade={item.grade}
-        />
-      ))}
-    </div>
-  </div>
-);
+  );
 }

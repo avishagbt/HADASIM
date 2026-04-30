@@ -43,13 +43,14 @@ export async function createNewLocation (stusentId: number, far: boolean) {
             Coordinates: rand,
             Time: new Date().toISOString()
             })
-        });
-    };
+    });
+};
 
 export function ToRadians( degrees: number)
 {
     return degrees * Math.PI / 180.0;
 }
+
 export function distance(lat1: number, lon1: number, lat2: number, lon2: number ){
     const radiusOfEarthKm = 6371; 
     const lat1Rad = ToRadians(lat1);

@@ -10,7 +10,6 @@ export class StudentsService {
   constructor(
     @InjectRepository(student)
     private studentRepository: Repository<student>,
-    //private dataSource: DataSource
   ) {}
 
   findAll(){
