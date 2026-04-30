@@ -97,7 +97,7 @@ export default function Map() {
     ) {
         checkIfStudentIsFar();
     }
-}, [markers, students, teachers, teacherMarkers]);
+    }, [markers, students, teachers, teacherMarkers]);
 
     
     const myIcon = new Icon({
@@ -124,30 +124,53 @@ export default function Map() {
         navigate("/teacher");
     }
 
+
   return (
-    <div>
-        <button onClick={changeLocation}>לשינוי מקום של התלמידות</button>
-        <button onClick={changeToFarLocation}>להרחיק תלמידה אקראית</button>
-        <button onClick={goBack}> חזרה לעמוד הקודם</button>
-        <MapContainer center={[31.7683, 35.2137]} zoom={12} style={{ height: "100vh", width: "100%" }}>
-        <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution="&copy; OpenStreetMap contributors"
-        />
-        {
-            markers.map(item =>
-                {const student = students.find(s=> s.id === item.id);
-                const isFar = student? farStudentsId.includes(student.id): false;
-                return(
-                <Marker key={item.id} position={item.geocode} icon={isFar?RedIcon:myIcon}>
-                    <Popup> {item.id} {student?student.firstName:""} {student?student.lastName:""}</Popup>
-                </Marker>
-            )})
-        }
-        </MapContainer>
+  <div style={{ position: 'relative' }}>
+
+    <div style={{
+      position: 'absolute', top: '1rem', right: '1rem', zIndex: 1000,
+      display: 'flex', flexDirection: 'column', gap: '0.5rem'
+    }}>
+      <div style={{
+        background: 'white', borderRadius: '12px', padding: '0.75rem',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', display: 'flex', flexDirection: 'column', gap: '0.5rem'
+      }}>
+        <div style={{ fontSize: '0.7rem', fontWeight: 600, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          פעולות
+        </div>
+        <button className="btn btn-secondary" onClick={changeLocation} style={{ fontSize: '0.8rem', padding: '0.45rem 0.9rem' }}>
+          שינוי מיקומים
+        </button>
+        <button className="btn btn-danger" onClick={changeToFarLocation} style={{ fontSize: '0.8rem', padding: '0.45rem 0.9rem' }}>
+          הרחקת תלמידה אקראית
+        </button>
+        <button className="btn btn-ghost" onClick={goBack} style={{ fontSize: '0.8rem', padding: '0.45rem 0.9rem' }}>
+          ← חזרה
+        </button>
+      </div>
+
     </div>
-    
-  );
+
+    <MapContainer center={[31.7683, 35.2137]} zoom={14} style={{ height: "100vh", width: "100%" }}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&copy; OpenStreetMap contributors"
+      />
+      {markers.map(item => {
+        const student = students.find(s => s.id === item.id);
+        const isFar = student ? farStudentsId.includes(student.id) : false;
+        return (
+          <Marker key={item.id} position={item.geocode} icon={isFar ? RedIcon : myIcon}>
+            <Popup>
+              <strong>{student ? `${student.firstName} ${student.lastName} ${item.id}` : item.id}</strong>
+            </Popup>
+          </Marker>
+        );
+      })}
+    </MapContainer>
+  </div>
+);
 }
 
 

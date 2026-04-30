@@ -50,17 +50,35 @@ export default function DataPage(){
     function goBack(): void{
         navigate("/teacher");
     }
-    return (
-        <div>
-            <button onClick={goBack}> חזרה לעמוד הקודם</button>
-            {data.map(item =>(
-                <Card
-                    id= {item.id}
-                    firstName={item.firstName}
-                    lastName={item.lastName}
-                    grade={item.grade}
-                />
-            ))}
-        </div>
-    )
+   
+    const title =
+        type === "students" && grade ? `תלמידות כיתה ${grade}` :
+        type === "students" ? "כל התלמידות" :
+        type === "teachers" ? "כל המורות" :
+        type === "student" ? "פרטי תלמידה" :
+        type === "teacher" ? "פרטי מורה" : "";
+
+   return (
+  <div className="page">
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+      <div>
+        <h2 style={{ fontSize: '1.25rem', fontWeight: 700 }}>{title}</h2>
+        <div style={{ fontSize: '0.8rem', color: 'var(--gray-400)', marginTop: '0.2rem' }}>{data.length} רשומות</div>
+      </div>
+      <button className="btn btn-ghost" onClick={goBack}>← חזרה</button>
+    </div>
+
+    <div className="cards-grid">
+      {data.map(item => (
+        <Card
+          key={item.id}
+          id={item.id}
+          firstName={item.firstName}
+          lastName={item.lastName}
+          grade={item.grade}
+        />
+      ))}
+    </div>
+  </div>
+);
 }

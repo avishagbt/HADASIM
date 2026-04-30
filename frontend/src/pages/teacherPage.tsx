@@ -126,7 +126,7 @@ export default function TeacherPage(){
         navigate("/login");
     }
 
-    return(
+    /*return(
         <div>
             <div>
             <h1> שלום {teacher?.firstName} {teacher?.lastName}</h1>
@@ -170,5 +170,70 @@ export default function TeacherPage(){
         </div>
         
         
-    )
+    )*/
+
+        return (
+  <div className="page">
+
+    {/* Greeting */}
+    <div className="greeting" style={{ marginBottom: '1.5rem' }}>
+      <h1>שלום, {teacher?.firstName} {teacher?.lastName} 👋</h1>
+      <p>ת.ז. {teacher?.id} &nbsp;|&nbsp; כיתה {teacher?.grade}</p>
+    </div>
+
+    {/* Quick actions */}
+    <div className="card" style={{ marginBottom: '1rem' }}>
+      <div className="section-title">צפייה ברשימות</div>
+      <div className="btn-group">
+        <button className="btn btn-primary" onClick={() => navigate("/Map")}>🗺️ מפת תלמידות</button>
+        <button className="btn btn-secondary" onClick={() => navigate(`/data?type=students&grade=${teacher?.grade}`)}>התלמידות שלי</button>
+        <button className="btn btn-secondary" onClick={() => navigate("/data?type=students")}>כל התלמידות</button>
+        <button className="btn btn-secondary" onClick={() => navigate("/data?type=teachers")}>כל המורות</button>
+        <button className="btn btn-ghost" onClick={() => navigate("/login")}>← יציאה</button>
+      </div>
+    </div>
+
+    {/* Search */}
+    <div className="card" style={{ marginBottom: '1rem' }}>
+      <div className="section-title">חיפוש</div>
+      <div className="input-group">
+        <label>מספר זהות</label>
+        <input type="text" value={id} onChange={e => setId(e.target.value)} placeholder="הכניסי מס' זהות..." />
+      </div>
+      <div className="btn-group" style={{ marginTop: '0.5rem' }}>
+        <button className="btn btn-ghost" onClick={searchStudent}>חיפוש תלמידה</button>
+        <button className="btn btn-ghost" onClick={searchTeacher}>חיפוש מורה</button>
+      </div>
+    </div>
+
+    {/* Add person */}
+    <div className="card" style={{ marginBottom: '1rem' }}>
+      <div className="section-title">הוספת תלמידה / מורה</div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+        <div className="input-group">
+          <label>מספר זהות</label>
+          <input type="text" value={id} onChange={e => setId(e.target.value)} placeholder="מס' זהות" />
+        </div>
+        <div className="input-group">
+          <label>כיתה</label>
+          <input type="text" value={grade} onChange={e => setGrade(e.target.value)} placeholder="כיתה" />
+        </div>
+        <div className="input-group">
+          <label>שם פרטי</label>
+          <input type="text" value={firstName} onChange={e => setFirstName(e.target.value)} placeholder="שם פרטי" />
+        </div>
+        <div className="input-group">
+          <label>שם משפחה</label>
+          <input type="text" value={lastName} onChange={e => setLastName(e.target.value)} placeholder="שם משפחה" />
+        </div>
+      </div>
+      <div className="btn-group">
+        <button className="btn btn-primary" onClick={addStudent}>+ הוספת תלמידה</button>
+        <button className="btn btn-secondary" onClick={addTeacher}>+ הוספת מורה</button>
+      </div>
+    </div>
+
+    
+  </div>
+);
 }

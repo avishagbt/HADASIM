@@ -4,22 +4,16 @@ import StudentPage from './pages/studentPage'
 import TeacherPage from './pages/teacherPage'
 import DataPage from './pages/dataPage'
 import MapPage from './pages/MapPage'
+import "./index.css"
 
 
-
-const styles: { [key: string]: React.CSSProperties } = {
-  headerStyle: {
-    fontSize: '3.5em',
-    color: '#9f0bc4ff',
-    marginBottom: '10px',
-    fontWeight: '800',
-  },
-}
 
 function App() {
 
   return (<div>
-    <h1 style={styles.headerStyle}>בית הספר "בנות משה" טיול שנתי</h1>
+    <header className="app-header">
+      <h1>🏫 בית הספר "בנות משה" — טיול שנתי</h1>
+    </header>
     <Routes>
       <Route path= "/" element = {<Navigate to={"/login"}/>}/>
       <Route path="/login" element={<LoginPage />} />

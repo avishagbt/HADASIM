@@ -38,7 +38,7 @@ export default function Login(){
             return;
         }
   };
-  return(
+  /*return(
     <div>        
         <input
             value={id}
@@ -47,5 +47,24 @@ export default function Login(){
         />
         <button onClick={handleLogin}>להתחברות</button>
     </div>
-  )
+  )*/
+ return (
+  <div>
+    <div className="input-group">
+      <label>מספר זהות</label>
+      <input
+        type="text"
+        value={id}
+        onChange={e => setId(e.target.value)}
+        placeholder="הכניסי מס' זהות..."
+        onKeyDown={e => e.key === 'Enter' && handleLogin()}
+      />
+    </div>
+    <button
+      className="btn btn-primary"
+      onClick={handleLogin}
+      style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem', padding: '0.7rem' }}
+    >להתחברות </button>
+  </div>
+);
 }
