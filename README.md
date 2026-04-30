@@ -67,10 +67,12 @@ http://localhost:5173
 
 When you open the website, you will see the login page.
 
+
 <img width="1392" height="1217" alt="loginImg" src="https://github.com/user-attachments/assets/def006a1-7470-4e66-bcb8-3ca54266f0da" />
 
 
 Enter a student ID and click the button.
+
 
 <img width="1387" height="1134" alt="studentImg" src="https://github.com/user-attachments/assets/7b9dd847-b9ac-43eb-9e39-1e7a7f1c6bf1" />
 
@@ -79,20 +81,27 @@ Click the "חזרה" button to return to the login page.
 
 Now enter a teacher ID. You will see all the teacher options.
 
+
 <img width="2322" height="1377" alt="teacherImg1" src="https://github.com/user-attachments/assets/4385d116-7475-4fcc-a884-ff3518a2c9ce" />
+
 
 <img width="2076" height="1334" alt="teacherImg2" src="https://github.com/user-attachments/assets/76ae6389-2460-48c2-8a40-d37b8165d405" />
 
+
 Try clicking the buttons to view the teacher’s students, a list of students/teachers, or perform a search.
 
+
 <img width="1955" height="847" alt="teacher&#39;sStudentsImg" src="https://github.com/user-attachments/assets/a06bca32-5ded-4fd5-abf5-c1b1e60283ea" />
+
 
 <img width="2057" height="1228" alt="allStudentsImg" src="https://github.com/user-attachments/assets/291e225b-55c2-4a11-9c96-924974fad3a9" />
 
 
 Then click the button that displays the map.
 
+
 <img width="3194" height="1282" alt="mapBeforeImg" src="https://github.com/user-attachments/assets/7c587f75-83f3-424c-8ff2-0a0f21521267" />
+
 
 ### Bonus Feature
 
@@ -130,15 +139,18 @@ Click the button to change students' locations and observe the markers move on t
 
 <img width="2334" height="949" alt="locationsAfter" src="https://github.com/user-attachments/assets/ff6fe285-1ce2-48ec-830b-eff812dac4f0" />
 
+
 Then click the button to move a student to a distant location.
 You will receive an alert, and the student's marker will turn red.
 
 ###Before:
+
 <img width="2334" height="949" alt="locationsAfter" src="https://github.com/user-attachments/assets/ff6fe285-1ce2-48ec-830b-eff812dac4f0" />
 
 ###After:
 
 <img width="847" height="704" alt="farStudentIcon" src="https://github.com/user-attachments/assets/1b44fdb8-99bf-414e-8422-5e337f3fb2ca" />
+
 <img width="1545" height="714" alt="farStudentImg" src="https://github.com/user-attachments/assets/e98cef4e-d736-4ddf-87df-54f1fa3ed2f3" />
 
 
