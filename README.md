@@ -103,7 +103,7 @@ Then click the button that displays the map.
 <img width="3194" height="1282" alt="mapBeforeImg" src="https://github.com/user-attachments/assets/7c587f75-83f3-424c-8ff2-0a0f21521267" />
 
 
-### Bonus Feature
+## Bonus Feature
 
 before you cheke this part:
 
@@ -131,11 +131,11 @@ Now you can start!
 
 Click the button to change students' locations and observe the markers move on the map.
 
-###Before:
+### Before:
 
 <img width="3194" height="1282" alt="mapBeforeImg" src="https://github.com/user-attachments/assets/7c587f75-83f3-424c-8ff2-0a0f21521267" />
 
-###After:
+### After:
 
 <img width="2334" height="949" alt="locationsAfter" src="https://github.com/user-attachments/assets/ff6fe285-1ce2-48ec-830b-eff812dac4f0" />
 
@@ -143,25 +143,27 @@ Click the button to change students' locations and observe the markers move on t
 Then click the button to move a student to a distant location.
 You will receive an alert, and the student's marker will turn red.
 
-###Before:
+### Before:
 
 <img width="2334" height="949" alt="locationsAfter" src="https://github.com/user-attachments/assets/ff6fe285-1ce2-48ec-830b-eff812dac4f0" />
 
-###After:
+### After:
 
 <img width="847" height="704" alt="farStudentIcon" src="https://github.com/user-attachments/assets/1b44fdb8-99bf-414e-8422-5e337f3fb2ca" />
 
 <img width="1545" height="714" alt="farStudentImg" src="https://github.com/user-attachments/assets/e98cef4e-d736-4ddf-87df-54f1fa3ed2f3" />
 
 
-##Note: 
+## Note about the bonus: 
 1. The system randomly selects a student and a location. In some cases, it may appear that nothing has changed because the same location was selected.  
 
-2. Two students may share the same location, causing one marker to appear hidden behind another. This will not happen in a real-world scenario.
+2. Two students may share the same location, causing one marker to be hidden behind another. This will not happen in a real-world scenario.
 
 3. When a distant student returns to a closer range, the marker color changes back.
+   
+4. Sometimes you'll have to zoom out in order to see students who moved too far.
 
-4. It is possible that two icons will appear in exactly the same location, where one is red and the other is not. This is because each student is checked based only on their distance from their own teacher.
+5. It is possible that two icons will appear in exactly the same location, where one is red and the other is not. This is because each student is checked based only on their distance from their own teacher.
 
 ## Notes
 
