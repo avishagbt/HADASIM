@@ -38,18 +38,49 @@ export default function TeacherPage(){
     }
 
     const searchStudent = async()=>{
-        if(!id){
+        try {
+            if(!id){
             alert("נא להכניס מספר זהות");
+            return;
+        }
+        const url = await fetch(`http://localhost:3000/student/${id}`);
+        if(!url.ok){
+            alert("התלמידה לא קיימת");
+            return;
+        }
+        const data = await url.json();
+
+        if (!data) {
+            alert("התלמידה לא קיימת");
             return;
         }
         navigate(`/data?type=student&id=${id}`);
+        } catch (error) {
+            alert("התלמידה לא קיימת");
+        }
+        
     }
     const searchTeacher = async()=>{
-        if(!id){
+        try {
+            if(!id){
             alert("נא להכניס מספר זהות");
             return;
         }
+        const url = await fetch(`http://localhost:3000/teacher/${id}`);
+        if(!url.ok){
+            alert("המורה לא קיימת");
+            return;
+        }
+        const data = await url.json();
+
+        if (!data) {
+            alert("המורה לא קיימת");
+            return;
+        }
         navigate(`/data?type=teacher&id=${id}`);
+        } catch (error) {
+            alert("המורה לא קיימת");
+        }
     }
 
     const addStudent = async()=>{
@@ -69,7 +100,7 @@ export default function TeacherPage(){
             grade: grade
             })
         });
-        await createNewLocation(Number(id));
+        await createNewLocation(Number(id),false);
         alert("נוסף בהצלחה");
     }
     const addTeacher = async()=>{
@@ -91,9 +122,9 @@ export default function TeacherPage(){
         });
         alert("נוסף בהצלחה");
     }
-
-     
-
+    function goBack(): void{
+        navigate("/login");
+    }
 
     return(
         <div>
@@ -133,6 +164,7 @@ export default function TeacherPage(){
         </div>
         <div>
             <button onClick={()=>navigate("/Map")}>לצפייה במיקומי התלמידות</button>
+            <button onClick={goBack}> חזרה לעמוד הקודם</button>
         </div>
 
         </div>

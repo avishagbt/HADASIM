@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 
@@ -45,10 +45,14 @@ export default function DataPage(){
             alert(error);
         }
         
-        
+    }
+    const navigate = useNavigate();
+    function goBack(): void{
+        navigate("/teacher");
     }
     return (
         <div>
+            <button onClick={goBack}> חזרה לעמוד הקודם</button>
             {data.map(item =>(
                 <Card
                     id= {item.id}

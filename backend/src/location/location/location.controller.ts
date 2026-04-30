@@ -11,6 +11,10 @@ export class LocationController {
   getAll() {
     return this.locationService.getAll();
   }
+  @Get('/teachers')
+  getAllTeachersLocations() {
+    return this.locationService.getAllTeachersLocations();
+  }
 
   @Get(':id')
   getOne(@Param('id') id: string) {
